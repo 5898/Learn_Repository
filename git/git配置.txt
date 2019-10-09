@@ -1,8 +1,21 @@
-window下配置
+查看系统config
+git config --system --list
+
+查看当前用户（global）配置
+git config --global  --list
+全局文件配置路径：C:\Users\Administrator\.gitconfig
+
+查看当前仓库配置信息
+git config --local  --list
+仓库文件配置路径：仓库/.git/config
 
 
-打开cmd/git bash,进入"C:\Users\用户名\.ssh"目录：
-cd ~/.ssh
+
+
+window下配置:
+
+打开cmd/git bash,进入"C:\Users\用户名\.ssh"目录：cd ~/.ssh
+
 生成ssh key:
 ssh-keygen -t rsa -C your_email_1      # git登录邮箱账号
 Enterfile in which to save the key: id_rsa_user1   # 输入存储文件名:id_rsa_xxx,默认id_rsa
@@ -20,14 +33,13 @@ Enterfile in which to save the key: id_rsa_user2
 
 添加~/.ssh下的config文件
 添加无后缀的文件重命名config
-HostName 　　　　　　　   这个是真实的域名地址
-IdentityFile 　　　　　　　  这里是id_rsa的地址
+HostName 　　　　　　　    这个是真实的域名地址,如github.com、git.oschina.net
+IdentityFile 　　　　　　　这里是id_rsa的地址
 PreferredAuthentications   配置登录时用什么权限认证--可设为publickey,password publickey,keyboard-interactive等
 User 　　　　　　　　　　　配置使用用户名
-Host 可以取为自己喜欢的名字，会影响git相关命令，如git clone git@user1:user1/仓库名.git,ssh -T git@user1
+Host 可以取为自己喜欢的名字，会影响git相关命令，如git clone git@user1:user1/仓库名.git、ssh -T git@user1
 
 config文件配置如下:
-
 # 配置github.com账户1:user1
 Host user1                 
     HostName github.com
@@ -43,13 +55,28 @@ Host user2
     User user2
 
 # 配置git.oschina.net码云账户
-Host git.oschina.net 
+Host git.oschina.net
     HostName git.oschina.net
     IdentityFile C:\\Users\\用户名\\.ssh\\id_rsa_oschina
     PreferredAuthentications publickey
     User username3
 
 
+
 测试公钥配置是否成功:
 ssh -T git@user1
+Are you sure you want to continue connecting(yes/no)?yes # 第一次连接
+返回Hi user1则成功配置
+同理：
 ssh -T git@user2
+ssh -T git@git.oschina.net
+同时~/.ssh下自动生成known_hosts文件，电脑配置多git账号成功
+
+
+
+已配置多个账号后,不同项目用对应账号上传：
+git clone git@user1:user1/仓库名.git
+git config user.name user1
+git config user.email your_email_1
+若不配置，则默认使用"C:\Users\Administrator\.gitconfig"全局配置账号
+
