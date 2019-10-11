@@ -1,4 +1,4 @@
-查看系统config
+查看git系统配置信息
 git config --system --list
 
 查看当前用户（global）配置
@@ -80,3 +80,9 @@ git config user.name user1
 git config user.email your_email_1
 若不配置，则默认使用"C:\Users\Administrator\.gitconfig"全局配置账号
 
+
+
+
+git仓库
+git remote -v # 查看远程仓库
+git remote set-url origin [your ssh repositories] # 设置远程仓库地址
