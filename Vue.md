@@ -1,9 +1,12 @@
-## Binding: Call, Apply, Bind 和 this
-更改this指向的方法
-call传递参数罗列，apply传递数组
-语法：
-fn.call(对象,参数1，参数2,....);//此地参数是指的是对象的参数，非方法的参数；
-fn.apply(对象,参数数组)//参数数组的形式:[参数1，参数2,......]
+## Vue双向绑定的原理
+ue的双向绑定是由数据劫持结合发布者－订阅者模式实现的。
+通过Object.defineProperty()来劫持对象属性的setter和getter操作
 
 
-## 上下文： 作用域 和 闭包
+
+## Vue3 项目搭建(2019)
+
+node -v #版本查看
+npm -v
+npm install -g @vue/cli # 安装vue-cli
+vue -v #版本查看

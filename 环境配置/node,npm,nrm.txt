@@ -1,0 +1,57 @@
+node
+
+安装成功后：
+node -v # 查看版本
+npm -v # 查看版本
+
+
+
+设置全局目录和缓存目录:
+windows默认全局模块文件【node_global】和缓存文件【node_cache】路径为C:\Users\用户名\AppData\Roaming\npm,建议修改为其他盘：
+
+NodeJs目录下新建【node_global】及【node_cache】文件夹，cmd设置：
+npm config set prefix "F:\<node路径>\node_global"
+npm config set cache "F:\<node路径>\node_cache"
+
+删除【 C:\Users\yi081\.npmrc】文件重新生成 或 编辑修改.npmrc
+
+
+
+设置环境变量:
+我的电脑右键-属性-高级系统设置-高级-环境变量
+系统变量:新建【NODE_PATH】，输入F:\<node路径>\node_modules
+用户变量:【Path】修改为F:\<node路径>\node_global
+
+
+
+
+
+
+
+npm
+
+npm -v # 查看版本
+npm i -g webpack # 全局安装webpack
+
+
+npm init # 创建package.json
+
+项目已经有package.json:
+npm i # 安装全部
+npm i -f # 一个模块不管是否安装过，npm 都要强制重新安装,npm install --force
+
+
+
+
+
+
+nrm
+
+nrm(npm registry manager )npm的镜像源管理工具
+
+
+nrm -V # 查看版本
+npm install -g nrm  # 全局安装nrm
+nrm ls # 查看可选的源
+nrm use taobao # 切换并默认使用taobao源
+nrm add <registry> <url> # 添加源,registry为源名,url为源地址
