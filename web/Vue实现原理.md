@@ -2,15 +2,13 @@
 
 [Vue官方源码及文档指路(https://github.com/vuejs/vue)](https://github.com/vuejs/vue)
 
-Vue是我初入编程时候第一个自学使用的MVVM框架，由艺术生设计师的尤雨溪大大开发，到2019已经更新到Vue3，是热门常用的web开发框架之一。
-
-基础使用就不说了，反正看官方文档和官方案例，把文档看仔细比什么都有用，而且官方是中文文档，很方便像我这种英语不好的人上手，Eh....
+Vue是我初入编程时候第一个自学使用的MVVM框架，由艺术生设计师的尤雨溪大大开发，到2019已经更新到Vue3，是热门常用的web开发框架之一。基础使用就不说了，反正看官方文档和官方案例，把文档看仔细比什么都有用，而且官方是中文文档，很方便像我这种英语不好的人上手，Eh....
 
 
 
-## MVVM和MVM
+# MVVM和MVM
 
-首先理解MVVM和MVM的区别,因为Vue是典型的*MVVM*模式。
+首先理解MVVM和MVM的区别，因为Vue是典型的*MVVM*模式。
 
 ### MVVM:Model-View-ViewModel,即模型-视图-视图模型。
 
@@ -266,12 +264,12 @@ console.log(vm);
 ```
 
 
-     # 相关链接
+# 相关链接
 
-     [剖析Vue原理&实现双向绑定MVVM](https://segmentfault.com/a/1190000006599500)
+[剖析Vue原理&实现双向绑定MVVM](https://segmentfault.com/a/1190000006599500)
 
-     [javascript实现数据双向绑定的三种方式](http://jixianqianduan.com/frontend-javascript/2015/11/29/js-data-two-ways-binding.html)
+[javascript实现数据双向绑定的三种方式](http://jixianqianduan.com/frontend-javascript/2015/11/29/js-data-two-ways-binding.html)
 
-     [Object.defineProperty()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
+[Object.defineProperty()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)
 
-     [Vue2.0源码阅读笔记--双向绑定实现原理](http://www.cnblogs.com/wj204/p/6423478.html)
+[Vue2.0源码阅读笔记--双向绑定实现原理](http://www.cnblogs.com/wj204/p/6423478.html)
