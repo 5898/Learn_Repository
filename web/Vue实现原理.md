@@ -12,7 +12,7 @@
 
 Vue是典型的*MVVM*模式,首先理解MVVM和MVM的区别：
 
-1.MVVM:Model-View-ViewModel,即模型-视图-视图模型。
+### MVVM:Model-View-ViewModel,即模型-视图-视图模型。
 
 简单来说，MVVM将视图UI和业务逻辑分开，实现双向绑定，大大的有利于维护前端代码。
 
@@ -24,7 +24,7 @@ Vue是典型的*MVVM*模式,首先理解MVVM和MVM的区别：
 
 
 
-2.MVC:Model-View-Controller,即模型-视图-控制器。
+### MVC:Model-View-Controller,即模型-视图-控制器。
 
 C即页面业务逻辑，MVC是单向通信，用业务逻辑（数据处理，html、css操作等）代码把数据展示出来。
 
@@ -38,9 +38,9 @@ C即页面业务逻辑，MVC是单向通信，用业务逻辑（数据处理，h
 
 > 如果用Vue开发过项目，几乎每个面试官都会问一句：“解释下Vue的双向绑定原理”。
 
-> Vue是通过*数据劫持+订阅发布者模式*实现的双向绑定。  
+Vue是通过*数据劫持+订阅发布者模式*实现的双向绑定。  
 
-> 核心方法：Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调
+核心方法：Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调
 
 
 ## 数据劫持
