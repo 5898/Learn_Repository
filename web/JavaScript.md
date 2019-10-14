@@ -1,4 +1,4 @@
-# Call, Apply, Bind调用的区别
+## Call, Apply, Bind调用的区别
 
 更改this指向的方法
 
@@ -13,12 +13,12 @@ fn.apply(对象,参数数组)//参数数组的形式:[参数1，参数2,......]
 bind
 
 
-# 闭包和作用域
+## 闭包和作用域
 
 闭包允许函数访问并操作函数外部的变量
 
 
-# let,var,const区别
+## let,var,const区别
 
 ### var
 
@@ -91,7 +91,77 @@ for (let i = 0; i < 10; i++) {
 
 
 
-# 堆和栈
+## 堆和栈
+
+
+
+## require、import
+
+### require/exports
+
+AMD规范,运行时调用,可在任何地方使用
+
+require是赋值过程，其实require的结果就是对象、数字、字符串、函数等，再把require的结果赋值给某个变量
+
+dep.js
+```js
+module.exports = {
+  foo : function() {},
+  a: 'a'
+};
+
+exports.fs = fs
+module.exports = fs
+```
+
+app.js
+```js
+var dep = require('./dep.js'); 
+console.log(dep.a);
+dep.foo();
+
+const fs = require('fs');
+
+```
+
+### import/export
+
+ES6,编译时调用,必须放在文件开头
+
+import是解构过程，babel将ES6转码为ES5，即import转码为require
+
+dep.js
+```js
+export default fs
+export const fs
+export function readFile
+export {readFile, read}
+export * from 'fs'
+
+export foo function(){}
+export const a = 'a'
+```
+
+app.js
+```js
+import fs from 'fs'
+import {default as fs} from 'fs'
+import * as fs from 'fs'
+import {readFile} from 'fs'
+import {readFile as read} from 'fs'
+import fs, {readFile} from 'fs'
+
+import { foo, a } from 'dep'
+console.log(a);
+foo();
+```
+
+## 原型链
+
+## promise、async await
+
+## 异步和同步
+
 
 
 # 相关链接
@@ -99,3 +169,5 @@ for (let i = 0; i < 10; i++) {
 JavaScript忍者秘籍(第2版)
 
 [JavaScript中var、let和const的区别](https://blog.csdn.net/qq_30216191/article/details/81042842)
+
+[import和require的区别](https://www.cnblogs.com/sunshq/p/7922182.html)
