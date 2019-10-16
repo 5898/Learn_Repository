@@ -162,7 +162,15 @@ foo();
 
 ## 异步和同步
 
+## 函数节流throttle和函数去抖debounce
 
+## websocket
+
+## ts
+
+## 跨域
+
+## 事件机制
 
 # 相关链接
 
