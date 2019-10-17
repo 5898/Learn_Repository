@@ -164,11 +164,21 @@ foo();
 
 ## 函数节流throttle和函数去抖debounce
 
+ 函数节流【throttle】：让一个函数不要执行得太频繁，减少一些过快的调用来节流
+    - 应用场景：
+        - DOM 元素的拖拽功能实现（mousemove）
+        - 射击游戏的 mousedown/keydown 事件（单位时间只能发射一颗子弹）
+        - 搜索联想（keyup）
+        - 监听滚动事件scroll
+        - 计算鼠标移动的距离（mousemove）
+    - 实现：underscore.js:_.throttle
+    - https://github.com/hanzichi/underscore-analysis/issues/22
+
 ## websocket
 
 ## ts
 
-## 跨域
+## 跨域CORS
 
 ## 事件机制
 
