@@ -180,6 +180,10 @@ foo();
 
 ## 跨域CORS
 
+同源策略（Same origin policy）
+
+CORS:全称"跨域资源共享"(Cross-origin resource sharing)
+
 ## 事件机制
 
 # 相关链接
