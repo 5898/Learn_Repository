@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f11623a-03ca-458d-9a2c-752432db1932" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/谷歌插件(扩展开发)/demo/background.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/谷歌插件(扩展开发)/demo/js/devtools.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/谷歌插件(扩展开发)/demo/newtab.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/谷歌插件(扩展开发)/demo/options.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/谷歌插件(扩展开发)/demo/popup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/谷歌插件(扩展开发)/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/谷歌插件(扩展开发)/demo.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/谷歌插件(扩展开发)/demo/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/谷歌插件(扩展开发)/demo/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/谷歌插件(扩展开发)/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/谷歌插件(扩展开发)/readme.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,6 +78,8 @@
       <workItem from="1573012249264" duration="5368000" />
       <workItem from="1573266945620" duration="13000" />
       <workItem from="1573699274427" duration="6187000" />
+      <workItem from="1573801829745" duration="631000" />
+      <workItem from="1574313403225" duration="762000" />
     </task>
     <servers />
   </component>

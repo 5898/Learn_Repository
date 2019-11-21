@@ -14,14 +14,14 @@
     "48": "img/icon.png",
     "128": "img/icon.png"
   },
-  // 会一直常驻的后台JS或后台页面
+  // 会一直运行的后台JS或后台页面
   "background":
   {
     // 2种指定方式，如果指定JS，那么会自动生成一个背景页
     "page": "background.html"
     //"scripts": ["js/background.js"]
   },
-  // 浏览器右上角图标设置，browser_action、page_action、app必须三选一
+  // 扩展图标，浏览器右上角图标，browser_action、page_action、app必须三选一
   "browser_action":
   {
     "default_icon": "img/icon.png",
@@ -29,7 +29,7 @@
     "default_title": "这是一个示例Chrome插件",
     "default_popup": "popup.html"
   },
-  // 当某些特定页面打开才显示的图标
+  // 地址栏图标
   /*"page_action":
   {
       "default_icon": "img/icon.png",
@@ -73,7 +73,7 @@
   // 插件主页，这个很重要，不要浪费了这个免费广告位
   "homepage_url": "https://www.baidu.com",
   // 覆盖浏览器默认页面
-  "chrome_url_overrides":
+//  "chrome_url_overrides":
 //  {
 //    // 覆盖浏览器默认的新标签页
 //    "newtab": "newtab.html"
