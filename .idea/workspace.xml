@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f11623a-03ca-458d-9a2c-752432db1932" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/环境配置/git配置.txt" beforeDir="false" afterPath="$PROJECT_DIR$/环境配置/git配置.txt" afterDir="false" />
     </list>
@@ -31,7 +30,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../chiebot/chiebot-ui-theme" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -80,7 +79,14 @@
       <workItem from="1573801829745" duration="631000" />
       <workItem from="1574313403225" duration="762000" />
       <workItem from="1574738093133" duration="61000" />
-      <workItem from="1575427012961" duration="4271000" />
+      <workItem from="1575427012961" duration="7920000" />
+      <workItem from="1575508590353" duration="4116000" />
+      <workItem from="1575594639176" duration="799000" />
+      <workItem from="1575609128309" duration="596000" />
+      <workItem from="1575857985224" duration="595000" />
+      <workItem from="1575871992143" duration="616000" />
+      <workItem from="1575955893040" duration="1124000" />
+      <workItem from="1575961212627" duration="7000" />
     </task>
     <servers />
   </component>

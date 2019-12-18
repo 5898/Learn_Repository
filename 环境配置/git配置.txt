@@ -87,8 +87,21 @@ git config user.email your_email_1
 
 
 
-git仓库
+常用命令
+ssh-keygen -t rsa -C "your_email" 生成ssh key，默认文件名id_rsa
+ssh-keygen -t rsa -f ~/.ssh/id_rsa.github -C "your_email" 生成指定文件名id_rsa.github
+git config --global user.name "your name" # 设置用户名
+git config --global user.email "your_email" # 设置邮箱
+
+git init # 创建git仓库
+git remote add origin [your ssh repositories] # 添加远程仓库
+git remote set-url origin [your ssh repositories] # 修改关联的远程仓库地址
 git remote -v # 查看远程仓库
-git remote set-url origin [your ssh repositories] # 设置远程仓库地址
 
 
+git branch -a # 查看全部分支
+
+
+git reset [--hard | soft | mixed | merge | keep ] # 合并
+git reset --mixed HEAD~1 # 回退上一个提交，保留更改
+git reset --hard HEAD~1 # 回退上一个提交，丢弃上个提交之后的更改
