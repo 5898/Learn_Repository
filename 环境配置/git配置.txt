@@ -105,3 +105,6 @@ git branch -a # 查看全部分支
 git reset [--hard | soft | mixed | merge | keep ] # 合并
 git reset --mixed HEAD~1 # 回退上一个提交，保留更改
 git reset --hard HEAD~1 # 回退上一个提交，丢弃上个提交之后的更改
+
+
+git commit --amend -m "新的提交信息" # 修改最近一次提交信息
