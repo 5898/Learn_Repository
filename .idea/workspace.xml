@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f11623a-03ca-458d-9a2c-752432db1932" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/Css.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/flex布局.md" beforeDir="false" afterPath="$PROJECT_DIR$/web/flex布局.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/环境配置/git配置.txt" beforeDir="false" afterPath="$PROJECT_DIR$/环境配置/git配置.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +29,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../chiebot/chiebot-ui-theme" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -89,7 +86,11 @@
       <workItem from="1575871992143" duration="616000" />
       <workItem from="1575955893040" duration="1124000" />
       <workItem from="1575961212627" duration="7000" />
-      <workItem from="1578472708692" duration="4718000" />
+      <workItem from="1578472708692" duration="5341000" />
+      <workItem from="1578621504233" duration="33000" />
+      <workItem from="1578621580720" duration="1518000" />
+      <workItem from="1578623642411" duration="3000" />
+      <workItem from="1578624250773" duration="304000" />
     </task>
     <servers />
   </component>
