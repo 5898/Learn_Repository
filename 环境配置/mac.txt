@@ -1,0 +1,1 @@
+sudo -i 切换root权限
