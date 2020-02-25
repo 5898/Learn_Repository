@@ -1,3 +1,4 @@
+// vscode用户配置
 {
   "workbench.colorCustomizations": {
     // 设置guide线高亮颜色
