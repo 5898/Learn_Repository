@@ -1,3 +1,28 @@
+## 深拷贝
+### 对象的深拷贝
+扩展运算符(…)用于取出参数对象中的所有可遍历属性，拷贝到当前对象之中
+```javascript
+let bar = { a: 1, b: 2 };
+// Object.assign合并对象，后面对象的同名属性会覆盖前面的对象
+let baz = Object.assign({}, bar);
+// 等价于(es6写法)
+let baz = { ...bar };
+
+// 合并{a:2, b: 4}和bar
+let baz = {...bar, ...{a:2, b: 4}};
+// 如果将扩展运算符用于数组赋值，只能放在参数的最后一位，否则会报错
+// 报错
+const [...rest, last] = [1, 2, 3, 4, 5];
+// 报错
+const [first, ...rest, last] = [1, 2, 3, 4, 5];
+```
+
+### 数组的深拷贝
+```javascript
+const arr1 = [1, 2];
+const arr2 = [...arr1];
+```
+
 ## Call, Apply, Bind调用的区别
 
 更改this指向的方法
