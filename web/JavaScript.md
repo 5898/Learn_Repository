@@ -1,26 +1,75 @@
 ## 深拷贝
 ### 对象的深拷贝
 扩展运算符(…)用于取出参数对象中的所有可遍历属性，拷贝到当前对象之中
+
+只拷贝一层
 ```javascript
-let bar = { a: 1, b: 2 };
+var obj = {
+    id: 1,
+    name: 'andy',
+    msg: {
+        age: 18
+    }
+};
+var o = {};
 // Object.assign合并对象，后面对象的同名属性会覆盖前面的对象
-let baz = Object.assign({}, bar);
+let new_obj = Object.assign({}, obj);
 // 等价于(es6写法)
-let baz = { ...bar };
+let new_obj = { ...obj };
 
 // 合并{a:2, b: 4}和bar
-let baz = {...bar, ...{a:2, b: 4}};
-// 如果将扩展运算符用于数组赋值，只能放在参数的最后一位，否则会报错
-// 报错
-const [...rest, last] = [1, 2, 3, 4, 5];
-// 报错
-const [first, ...rest, last] = [1, 2, 3, 4, 5];
+let new_obj2 = {...obj, ...{a:2, b: 4}};
+
+
+obj.id = 2;
+obj.msg.age = 20;
+console.log(obj); //{id: 1,name: 'andy', msg:{age:20}}
+```
+### 用递归拷贝
+```javascript
+var obj = {
+    id: 1,
+    name: 'andy',
+    msg: {
+        age: 18
+    },
+    color: ['pink', 'red']
+};
+var o = {};
+
+// 封装函数 
+function deepCopy(newobj, oldobj) {
+    for (var k in oldobj) {
+    // 判断我们的属性值属于那种数据类型
+        // 1. 获取属性值  oldobj[k]
+        var item = oldobj[k];
+        // 2. 判断这个值是否是数组，返回布尔值
+        if (item instanceof Array) {
+            newobj[k] = [];
+            deepCopy(newobj[k], item)
+        } else if (item instanceof Object) {
+        // 3. 判断这个值是否是对象，返回布尔值
+            newobj[k] = {};
+            deepCopy(newobj[k], item)
+        } else {
+        // 4. 属于简单数据类型
+            newobj[k] = item;
+        }
+    }
+}
+deepCopy(o, obj);
 ```
 
 ### 数组的深拷贝
 ```javascript
 const arr1 = [1, 2];
 const arr2 = [...arr1];
+
+// 如果将扩展运算符用于数组赋值，只能放在参数的最后一位，否则会报错
+// 报错
+const [...rest, last] = [1, 2, 3, 4, 5];
+// 报错
+const [first, ...rest, last] = [1, 2, 3, 4, 5];
 ```
 
 ## Call, Apply, Bind调用的区别
