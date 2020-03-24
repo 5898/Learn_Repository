@@ -29,3 +29,26 @@ flex
 
 元素与其他元素不同的垂直对齐方式
 align-self:auto （默认值）| flex-start | flex-end | center | baseline | stretch;
+
+
+flex:1
+<===>
+{
+  flex-grow：1
+  flex-shrink：1
+  flex-basis：0
+}
+
+项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
+flex-grow:0(默认值)/1/2/inherit
+如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍
+
+定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+flex-shrink:1(默认值)/0/inherit
+如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小
+
+定义了在分配多余空间之前，项目占据的主轴空间（main size）
+可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间
+flex-basis:auto(默认值)
+
+flex:0 1 auto(默认值)/auto (1 1 auto)/none (0 0 auto)
