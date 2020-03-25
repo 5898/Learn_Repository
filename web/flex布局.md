@@ -1,9 +1,11 @@
 ### flex
 盒子:.box
+```css
 .box{
   display: -webkit-flex; /* Webkit 内核的浏览器 */
   display: flex;
 }
+```
 
 主轴的方向
 flex-direction: row（默认值，水平） | row-reverse（水平，从右到左） | column（垂直） | column-reverse（垂直，从下到上）;
@@ -52,3 +54,6 @@ flex-shrink:1(默认值)/0/inherit
 flex-basis:auto(默认值)
 
 flex:0 1 auto(默认值)/auto (1 1 auto)/none (0 0 auto)
+
+### inline-flex
+`display:inline-flex;`对内部元素flex，对外部inline
