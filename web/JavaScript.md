@@ -234,7 +234,20 @@ foo();
 
 ## promise、async await
 
+
 ## 异步和同步
+### setTimeout
+异步
+改成同步：
+```javascript
+execAsync(fn) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(fn);
+        }, 1000);
+    });
+},
+```
 
 ## 函数节流throttle和函数去抖debounce
 
