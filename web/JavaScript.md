@@ -247,6 +247,11 @@ execAsync(fn) {
         }, 1000);
     });
 },
+
+// vue 同步节点更新
+await this.$nexttick(()=>{
+    done();
+})
 ```
 
 ## 函数节流throttle和函数去抖debounce
