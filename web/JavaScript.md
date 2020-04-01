@@ -232,10 +232,31 @@ foo();
 
 ## 原型链
 
+
+## Event Loop事件轮询
+https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/?utm_source=html5weekly
+
+Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型。
+
+浏览器单线程
+
+同步任务( MainTask)：
+异步任务：promise、setTimeout、setlnterval、DOM事件/渲染、Promise、Ajax；
+
+    宏任务（task):script(整体代码)、setTimeout、setInterval、I/O、UI渲染
+    微任务(MicroTask):需要在当前 task 执行结束后立即执行的任务,文档ECMAScript 中把微任务叫做jobs，如：Promise、Object.obsever、MutationObsever、process.nextTick
+1.执行同步任务，同步任务队列执行完后；
+2.执行微任务队列里所有微任务promise;
+3.执行完微任务队列后，执行一个宏任务setTimeout;
+4.循环：从1开始若有同步任务MainTask则执行(一般没有，除动态插入代码);若有2微任务队列更新则执行2，然后执行3
+
+
+
 ## promise、async await
 
 
 ## 异步和同步
+
 ### setTimeout
 异步
 改成同步：
