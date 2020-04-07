@@ -286,6 +286,43 @@ await this.$nexttick(()=>{
         - 计算鼠标移动的距离（mousemove）
     - 实现：underscore.js:_.throttle
     - https://github.com/hanzichi/underscore-analysis/issues/22
+```javascript
+/**
+ * 函数防抖,只执行最后触发的一次
+ * @param {回调函数} fn
+ * @param {时间间隔(ms)} delay
+ */
+export const debounce = (fn, delay) => {
+  let timer = null;
+  return () => {
+    // clearTimeout(timer);
+    if (!timer) {
+      timer = setTimeout(function() {
+        clearTimeout(timer);
+        fn();
+      }, delay);
+    }
+  };
+};
+
+export const throttle = (fn, delay) => {
+  let timer = null;
+  let firstTime = true;
+  return () => {
+    if (firstTime) {
+      fn();
+      firstTime = false;
+    }
+    if (timer) {
+      return false;
+    }
+    timer = setTimeout(function() {
+      clearTimeout(timer);
+      fn();
+    }, delay);
+  };
+};
+```
 
 ## websocket
 
