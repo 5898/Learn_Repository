@@ -32,7 +32,7 @@ npm
 
 npm -v # 查看版本
 npm i -g webpack # 全局安装webpack
-
+npm install npm -g 更新npm
 
 npm init # 创建package.json
 
@@ -41,6 +41,33 @@ npm i # 安装全部
 npm i -f # 一个模块不管是否安装过，npm 都要强制重新安装,npm install --force
 
 
+
+
+安装和卸载
+
+写入devDependencies
+npm install --save-dev react-router@2.8.1 下载2.x版本
+npm i -D 模块/npm i 模块 -D   
+
+写入dependencies
+npm install --save react-router@2.8.1
+npm i -S 模块/npm i 模块 -S
+
+devDependencies 里面的插件只用于开发环境，不用于生产环境,如webpack，gulp等打包工具，是我们开发阶段使用的，代码提交线上时，不需要这些工具
+dependencies 是需要发布到生产环境的
+
+
+
+
+
+`npm uninstall lodash` 卸载lodash模块,会默认卸载高版本的模块。
+`npm uninstall lodash --save` 卸载模块,同时删除模块留在package.json中dependencies下的对应信息
+`npm uninstall 模块 --save-dev` 删除模块，同时删除模块留在package.json中devDependencies下的对应信息
+npm uninstall lodash@3.* // 卸载 lodash 模块 3.* 版本
+本地安装路径中可以发现有两个版本 lodash 的模块，
+而 npm 默认在使用时会优先调用高版本的模块。
+
+为避免同一个模块多个版本之间造成隐藏问题，最佳实践是安装一个模块的新版本时对这个模块之前的版本进行卸载
 
 
 
@@ -57,8 +84,32 @@ nrm use taobao # 切换并默认使用taobao源
 nrm add <registry> <url> # 添加源,registry为源名,url为源地址
 
 
+
+
+n             mac和Linux可用的node版本管理工具
+Nodist、nvmw  针对windows的node版本管理工具 
+
+n
+更新node到最新版本：
+npm cache clean -f 清除npm缓存
+npm install -g n 安装n模块
+
+npm ERR! notsup Unsupported platform for n@2.1.8: wanted
+若出现报错 {“os”:”!win32”,”arch”:”any”} (current: {“os”:”win32”,”arch”:”x64”})，在命令后面加上 –force 重新运行
+npm install -g n –force
+
+n stable 升级node.js到最新稳定版
+
+
+package.json
+"webpack": "^3.0.0"  会去匹配2.x.x中最新的版本，但是他不会自动更新到3.0.0
+"exif-js": "~2.3.0"  会去匹配更新到2.3.x的最新版本
+
+
+
 常用命令
 netstat -ano|findstr "8000" 查看占用端口的 PID
 netstat -ano 查找所有运行的端口
 tasklist|findstr "9088" 查看指定 PID 的进程
 taskkill /T /F /PID 9088   强制（/F参数）杀死 pid 为 9088 的所有进程包括子进程（/T参数）
+ipconfig 查看ip
