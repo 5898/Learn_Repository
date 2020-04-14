@@ -305,6 +305,11 @@ export const debounce = (fn, delay) => {
   };
 };
 
+/**
+ * 函数节流
+ * @param {回调函数} fn
+ * @param {时间间隔(ms)} delay
+ */
 export const throttle = (fn, delay) => {
   let timer = null;
   let firstTime = true;
@@ -314,7 +319,7 @@ export const throttle = (fn, delay) => {
       firstTime = false;
     }
     if (timer) {
-      return false;
+      return;
     }
     timer = setTimeout(function() {
       clearTimeout(timer);
@@ -322,6 +327,12 @@ export const throttle = (fn, delay) => {
     }, delay);
   };
 };
+
+
+// test
+window.addEventListener("mousemove",throttle(()=>{
+  console.log(1)
+},1000))
 ```
 
 ## websocket
