@@ -1,3 +1,57 @@
+## 变量提升和函数提升Hosting
+原js没有块级作用域，只有函数作用域和全局作用域
+es6新增块级作用域，由{}包括，如 if、for里面的{}，其中let只能在块级作用域里访问，有“暂时性死区”特性
+for每次循环都是一个新块级作用域，所以let每次都是新变量
+
+
+```javascript
+var a=0;
+if(true){
+  a=1;
+  function a(){};
+  a=21;
+  console.log('里面'+a);
+}
+console.log('外面'+a);
+// 输出 21 1
+
+
+
+var a=0;
+// if(true){
+  a=1;
+  function a(){};
+  a=21;
+  console.log('里面'+a);
+// }
+console.log('外面'+a);
+// 输出 21 21
+
+var a=0;
+if(true){
+  a=1;
+  // function a(){};
+  a=21;
+  console.log('里面'+a);
+}
+console.log('外面'+a);
+// 输出 21 21
+
+var a=0;
+if(true){
+  a=1;
+  function b(){};
+  a=21;
+  console.log('里面'+a);
+}
+console.log('外面'+a);
+// 输出 21 21
+```
+
+
+
+
+
 ## 深拷贝
 ### 对象的深拷贝
 扩展运算符(…)用于取出参数对象中的所有可遍历属性，拷贝到当前对象之中
