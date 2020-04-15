@@ -20,7 +20,7 @@ console.log('外面'+a);
 
 var a=0;
 console.log(0,a); // 0
-if (true) {
+// if (true) {
   console.log(1, a); // function a，函数提升，函数提升存在块级作用域
   a=1;
   console.log(2,a); // 1
@@ -28,7 +28,7 @@ if (true) {
   console.log(3, a); // 1
   a=21;
   console.log(4,a); // 21
-}
+// }
 console.log(5,a); // 1
 ```
 
