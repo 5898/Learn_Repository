@@ -3,7 +3,9 @@
 es6新增块级作用域，由{}包括，如 if、for里面的{}，其中let只能在块级作用域里访问，有“暂时性死区”特性
 for每次循环都是一个新块级作用域，所以let每次都是新变量
 
-
+原因：
+var变量提升全局/函数内
+函数提升，块级/全局/函数内
 ```javascript
 var a=0;
 if(true){
@@ -16,37 +18,20 @@ console.log('外面'+a);
 // 输出 21 1
 
 
-
 var a=0;
-// if(true){
+console.log(0,a); // 0
+if (true) {
+  console.log(1, a); // function a，函数提升，函数提升存在块级作用域
   a=1;
-  function a(){};
+  console.log(2,a); // 1
+  function a() {}
+  console.log(3, a); // 1
   a=21;
-  console.log('里面'+a);
-// }
-console.log('外面'+a);
-// 输出 21 21
-
-var a=0;
-if(true){
-  a=1;
-  // function a(){};
-  a=21;
-  console.log('里面'+a);
+  console.log(4,a); // 21
 }
-console.log('外面'+a);
-// 输出 21 21
-
-var a=0;
-if(true){
-  a=1;
-  function b(){};
-  a=21;
-  console.log('里面'+a);
-}
-console.log('外面'+a);
-// 输出 21 21
+console.log(5,a); // 1
 ```
+
 
 
 
