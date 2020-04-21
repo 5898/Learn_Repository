@@ -1,3 +1,116 @@
+## 变量提升和函数提升Hosting
+原js没有块级作用域，只有函数作用域和全局作用域
+es6新增块级作用域，由{}包括，如 if、for里面的{}，其中let只能在块级作用域里访问，有“暂时性死区”特性
+for每次循环都是一个新块级作用域，所以let每次都是新变量
+
+原因：
+var变量提升全局/函数内
+函数提升，块级/全局/函数内
+```javascript
+var a=0;
+if(true){
+  a=1;
+  function a(){};
+  a=21;
+  console.log('里面'+a);
+}
+console.log('外面'+a);
+// 输出 21 1
+
+
+var a=0;
+console.log(0,a); // 0
+// if (true) {
+  console.log(1, a); // function a，函数提升，函数提升存在块级作用域
+  a=1;
+  console.log(2,a); // 1
+  function a() {}
+  console.log(3, a); // 1
+  a=21;
+  console.log(4,a); // 21
+// }
+console.log(5,a); // 1
+```
+
+
+
+
+
+
+## 深拷贝
+### 对象的深拷贝
+扩展运算符(…)用于取出参数对象中的所有可遍历属性，拷贝到当前对象之中
+
+只拷贝一层
+```javascript
+var obj = {
+    id: 1,
+    name: 'andy',
+    msg: {
+        age: 18
+    }
+};
+var o = {};
+// Object.assign合并对象，后面对象的同名属性会覆盖前面的对象
+let new_obj = Object.assign({}, obj);
+// 等价于(es6写法)
+let new_obj = { ...obj };
+
+// 合并{a:2, b: 4}和bar
+let new_obj2 = {...obj, ...{a:2, b: 4}};
+
+
+obj.id = 2;
+obj.msg.age = 20;
+console.log(obj); //{id: 1,name: 'andy', msg:{age:20}}
+```
+### 用递归拷贝
+```javascript
+var obj = {
+    id: 1,
+    name: 'andy',
+    msg: {
+        age: 18
+    },
+    color: ['pink', 'red']
+};
+var o = {};
+
+// 封装函数 
+function deepCopy(newobj, oldobj) {
+    for (var k in oldobj) {
+    // 判断我们的属性值属于那种数据类型
+        // 1. 获取属性值  oldobj[k]
+        var item = oldobj[k];
+        // 2. 判断这个值是否是数组，返回布尔值
+        if (item instanceof Array) {
+            newobj[k] = [];
+            deepCopy(newobj[k], item)
+        } else if (item instanceof Object) {
+        // 3. 判断这个值是否是对象，返回布尔值
+            newobj[k] = {};
+            deepCopy(newobj[k], item)
+        } else {
+        // 4. 属于简单数据类型
+            newobj[k] = item;
+        }
+    }
+}
+deepCopy(o, obj);
+```
+
+### 数组的深拷贝
+```javascript
+const arr1 = [1, 2];
+const arr2 = [...arr1];
+
+// 如果将扩展运算符用于数组赋值，只能放在参数的最后一位，否则会报错
+// 报错
+const [...rest, last] = [1, 2, 3, 4, 5];
+// 报错
+const [first, ...rest, last] = [1, 2, 3, 4, 5];
+```
+
 ## Call, Apply, Bind调用的区别
 
 更改this指向的方法
@@ -158,9 +271,48 @@ foo();
 
 ## 原型链
 
+
+## Event Loop事件轮询
+https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/?utm_source=html5weekly
+
+Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型。
+
+浏览器单线程
+
+同步任务( MainTask)：
+异步任务：promise、setTimeout、setlnterval、DOM事件/渲染、Promise、Ajax；
+
+    宏任务（task):script(整体代码)、setTimeout、setInterval、I/O、UI渲染
+    微任务(MicroTask):需要在当前 task 执行结束后立即执行的任务,文档ECMAScript 中把微任务叫做jobs，如：Promise、Object.obsever、MutationObsever、process.nextTick
+1.执行同步任务，同步任务队列执行完后；
+2.执行微任务队列里所有微任务promise;
+3.执行完微任务队列后，执行一个宏任务setTimeout;
+4.循环：从1开始若有同步任务MainTask则执行(一般没有，除动态插入代码);若有2微任务队列更新则执行2，然后执行3
+
+
+
 ## promise、async await
 
+
 ## 异步和同步
+
+### setTimeout
+异步
+改成同步：
+```javascript
+execAsync(fn) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(fn);
+        }, 1000);
+    });
+},
+
+// vue 同步节点更新
+await this.$nexttick(()=>{
+    done();
+})
+```
 
 ## 函数节流throttle和函数去抖debounce
 
@@ -173,6 +325,54 @@ foo();
         - 计算鼠标移动的距离（mousemove）
     - 实现：underscore.js:_.throttle
     - https://github.com/hanzichi/underscore-analysis/issues/22
+```javascript
+/**
+ * 函数防抖,只执行最后触发的一次
+ * @param {回调函数} fn
+ * @param {时间间隔(ms)} delay
+ */
+export const debounce = (fn, delay) => {
+  let timer = null;
+  return () => {
+    // clearTimeout(timer);
+    if (!timer) {
+      timer = setTimeout(function() {
+        clearTimeout(timer);
+        fn();
+      }, delay);
+    }
+  };
+};
+
+/**
+ * 函数节流
+ * @param {回调函数} fn
+ * @param {时间间隔(ms)} delay
+ */
+export const throttle = (fn, delay) => {
+  let timer = null;
+  let firstTime = true;
+  return () => {
+    if (firstTime) {
+      fn();
+      firstTime = false;
+    }
+    if (timer) {
+      return;
+    }
+    timer = setTimeout(function() {
+      clearTimeout(timer);
+      fn();
+    }, delay);
+  };
+};
+
+
+// test
+window.addEventListener("mousemove",throttle(()=>{
+  console.log(1)
+},1000))
+```
 
 ## websocket
 

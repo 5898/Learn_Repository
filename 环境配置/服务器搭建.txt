@@ -1,20 +1,20 @@
 yum install nginx -y
-nginx ����
-���þ�̬����������·��
-�����û����ʷ������� Web ������ Nginx �ṩ��Nginx ��Ҫ���þ�̬��Դ��·����Ϣ����ͨ�� url ��ȷ���ʵ��������ϵľ�̬��Դ��
-�� Nginx ��Ĭ�������ļ� /etc/nginx/nginx.conf ���޸� Nginx ���ã���Ĭ�ϵ� root /usr/share/nginx/html; �޸�Ϊ: root /data/www;�����£�
+nginx 启动
+配置静态服务器访问路径
+外网用户访问服务器的 Web 服务由 Nginx 提供，Nginx 需要配置静态资源的路径信息才能通过 url 正确访问到服务器上的静态资源。
+打开 Nginx 的默认配置文件 /etc/nginx/nginx.conf ，修改 Nginx 配置，将默认的 root /usr/share/nginx/html; 修改为: root /data/www;，如下：
 nginx.conf
-�����ļ��� /data/www/static ��Ϊ���о�̬��Դ����ĸ�·���������: http://119.29.250.68/static/index.js������ȥ /data/www/static/ Ŀ¼��ȥ���� index.js������������Ҫ���� Nginx ���µ�������Ч���磺
+配置文件将 /data/www/static 作为所有静态资源请求的根路径，如访问: http://119.29.250.68/static/index.js，将会去 /data/www/static/ 目录下去查找 index.js。现在我们需要重启 Nginx 让新的配置生效，如：
 nginx -s reload
-��������������Ӧ���Ѿ�����ʹ�����ǵľ�̬�������ˣ������������½�һ����̬�ļ����鿴�����Ƿ�����������
-������������ /data Ŀ¼ �´��� www Ŀ¼���磺
+重启后，现在我们应该已经可以使用我们的静态服务器了，现在让我们新建一个静态文件，查看服务是否运行正常。
+首先让我们在 /data 目录 下创建 www 目录，如：
 mkdir -p /data/www
 
 
-�� /data/www Ŀ¼�´������ǵĵ�һ����̬�ļ� index.html
+在 /data/www 目录下创建我们的第一个静态文件 index.html
 index.html
-���ڷ��� http://119.29.250.68/index.html Ӧ�ÿ��Կ���ҳ����� Hello world!
-���ˣ�һ������ Nginx �ľ�̬�������ʹ����ˣ��������з��� /data/www Ŀ¼�µĵľ�̬��Դ������ֱ��ͨ���������ʡ�
+现在访问 http://119.29.250.68/index.html 应该可以看到页面输出 Hello world!
+到此，一个基于 Nginx 的静态服务器就搭建完成了，现在所有放在 /data/www 目录下的的静态资源都可以直接通过域名访问。
 
 
 
@@ -23,11 +23,11 @@ index.html
 
 
 
-��װ Node.js ����ذ�
-����ʱ�䣺30min ~ 60min
+安装 Node.js 及相关包
+任务时间：30min ~ 60min
 
-��װ Node.js
-�������������������а�װ��
+安装 Node.js
+逐行输入下面的命令进行安装：
 
 yum update -y
 yum groupinstall -y "Development Tools"
@@ -35,91 +35,93 @@ curl --silent --location https://rpm.nodesource.com/setup_6.x | sudo bash -
 yum -y install nodejs
 npm config set registry https://registry.npm.taobao.org
 npm i -g cnpm
-��װ�ɹ���ͨ������node -v��npm -v ���ְ汾�ż��ɱ�ʾ��װ�ɹ���
+安装成功后通过运行node -v及npm -v 出现版本号即可表示安装成功。
 
-��Ϊ��������Ĺ�ϵ��Ҳͬʱ��װ�� cnpm ģ�飬������ʹ�ø�������� npm ���
+因为国内网络的关系，也同时安装了 cnpm 模块，后续将使用该命令代替 npm 命令。
 
-��װ Ghost Client ��ghost-cli��
+安装 Ghost Client （ghost-cli）
 cnpm i -g ghost-cli
-һ����ԣ���װ�ɹ���ͨ������ ghost -v�����ְ汾�ż��ɱ�ʾ��װ�ɹ�������Ϊ���ڵ��������⣬��װ���������ն˵� log������г��������ɫ������Ϣ����֤��ֻ�в��ְ�װ�ɹ�����Ҫ����ִ�����װ��
+一般而言，安装成功后通过运行 ghost -v，出现版本号即可表示安装成功。但因为国内的网络问题，安装后请检查下终端的 log，如果有出现任意红色报错信息，则证明只有部分安装成功，需要重新执行命令安装。
 
-�������������װ����ִ����������
+如果不能正常安装请多次执行上面的命令。
 
-��װ Ghost
-����ʱ�䣺30min ~ 60min
+安装 Ghost
+任务时间：30min ~ 60min
 
-���� Ghost �����û�������Ŀ¼
-�밴�������������������
+添加 Ghost 运行用户并创建目录
+请按行依次输入下面的命令
 
 adduser ghost
 mkdir /var/www
 mkdir /var/www/ghost
 chown ghost /var/www/ghost
-��װ Ghost
-���̳��� SQLite3 ��Ϊ Ghost �����ݿ⡣
+安装 Ghost
+本教程以 SQLite3 作为 Ghost 的数据库。
 
 su ghost
 cd /var/www/ghost
 ghost install local --db=sqlite3
-��װ�ɹ��Ľ�ͼ��
+安装成功的截图：
 
 
 
-����㰲װ������������Ľ�ͼ����֤�� Ghost-cli û�а�װ�ɹ������ظ�ִ����һ���ġ���װ Ghost Client�����衣
+如果你安装后不是类似上面的截图，则证明 Ghost-cli 没有安装成功；请重复执行上一步的“安装 Ghost Client”步骤。
 
-���� Ghost
-��װ�ɹ��� Ghost Ĭ�Ͼ��Ѿ��������ˣ����������ֱ��� Ghost ��ֹͣ����������������ɳ���ʹ�á�
+启动 Ghost
+安装成功后 Ghost 默认就已经启动的了，下面的命令分别是 Ghost 的停止、启动、重启命令，可尝试使用。
 
 ghost stop
 ghost start
 ghost restart
-��װ�ɹ���Ĭ����������http://localhost:2368/�������Ҫ������ʣ�����Ҫͨ�� Nginx ���з��������
+安装成功后默认是运行在http://localhost:2368/，如果需要对外访问，则需要通过 Nginx 进行反向代理。
 
-��װ Nginx
-����ʱ�䣺30min ~ 60min
+安装 Nginx
+任务时间：30min ~ 60min
 
-���� Nginx �� yum Դ
-ʹ�����������л��� root �û�
+添加 Nginx 到 yum 源
+使用以下命令切换到 root 用户
 
 su root
-Password ��д��ǰ root ���룺
+Password 填写当前 root 密码：
 
-<���� CVM ��¼����>
-���� CentOS 7 Nginx yum ��Դ�⣺
+<您的 CVM 登录密码>
+添加 CentOS 7 Nginx yum 资源库：
 
 rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
-��װ Nginx
+安装 Nginx
 yum install -y nginx
-�������⣬Nginx ����ɰ�װ����ķ������С�
+如无意外，Nginx 将完成安装在你的服务器中。
 
 
 
-���� Nginx
-�հ�װ�� Nginx ����������������Ҫͨ��������������
+启动 Nginx
+刚安装的 Nginx 不会自行启动，需要通过如下命令启动
 
 systemctl start nginx.service
-���һ�н�չ˳���Ļ������������ͨ���� IP( http://<���� CVM IP ��ַ>/ )��������� Web ҳ����Ԥ��һ�� Nginx ��Ĭ��ҳ�档
+如果一切进展顺利的话，现在你可以通过你 IP( http://<您的 CVM IP 地址>/ )来访问你的 Web 页面来预览一下 Nginx 的默认页面。
 
 
 
-������������ҳ��,��ô˵����� CentOS �е� Nginx �Ѿ���ȷ��װ��
+如果看到上面的页面,那么说明你的 CentOS 中的 Nginx 已经正确安装。
 
-���⻹����ͨ��systemctl enable nginx.service������뿪�������
+另外还可以通过systemctl enable nginx.service命令加入开机启动项。
 
-Nginx ���÷������
-����ʱ�䣺ʱ��δ֪
 
-�޸� config �ļ�
-��ȷ�� Ghost �Ѿ������н׶η��ɽ������²�����
+s
+Nginx 配置反向代理
+任务时间：时间未知
+
+修改 config 文件
+请确保 Ghost 已经在运行阶段方可进行如下操作。
 
 vi /etc/nginx/conf.d/default.conf
-���������������ټ��� i Ȼ���ƶ������Լ�������޸�����ļ����룺
+运行上面的命令后，再键入 i 然后移动光标在约第七行修改相关文件代码：
 
 location / {
         root   /usr/share/nginx/html;
         index  index.html index.htm;
     }
-��Ϊ��
+改为：
 
 location / {
         proxy_pass http://127.0.0.1:2368;
@@ -127,20 +129,20 @@ location / {
         root   /usr/share/nginx/html;
         index  index.html index.htm;
     }
-��ɺ�ͨ���� ESC ��������� :wq �س����档
+完成后通过按 ESC ，随后输入 :wq 回车保存。
 
 
 
-Ȼ������ nginx -s reload ���� Nginx��
+然后运行 nginx -s reload 重启 Nginx。
 
-Ghost �Ľ������
-����ʱ�䣺5min ~ 10min
+Ghost 的界面管理
+任务时间：5min ~ 10min
 
-��ҳ
-���������Ĳ���֮�󣬷���http://<���� CVM IP ��ַ>/ ���ܿ��� Ghost ��Ĭ��ҳ���������£�
+首页
+完成了上面的步骤之后，访问http://<您的 CVM IP 地址>/ 就能看到 Ghost 的默认页面变成了如下：
 
 
 
-��������
-����http://<���� CVM IP ��ַ>/ghost �Ϳ��Լ������д�������ˡ�
+管理界面
+访问http://<您的 CVM IP 地址>/ghost 就可以继续相关写作设置了。
 

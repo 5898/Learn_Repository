@@ -1,110 +1,113 @@
-²é¿´gitÏµÍ³ÅäÖÃĞÅÏ¢
+æŸ¥çœ‹gitç³»ç»Ÿé…ç½®ä¿¡æ¯
 git config --system --list
 
-²é¿´µ±Ç°ÓÃ»§£¨global£©ÅäÖÃ
+æŸ¥çœ‹å½“å‰ç”¨æˆ·ï¼ˆglobalï¼‰é…ç½®
 git config --global  --list
-È«¾ÖÎÄ¼şÅäÖÃÂ·¾¶£ºC:\Users\Administrator\.gitconfig
+å…¨å±€æ–‡ä»¶é…ç½®è·¯å¾„ï¼šC:\Users\Administrator\.gitconfig
 
-²é¿´µ±Ç°²Ö¿âÅäÖÃĞÅÏ¢
+æŸ¥çœ‹å½“å‰ä»“åº“é…ç½®ä¿¡æ¯
 git config --local  --list
-²Ö¿âÎÄ¼şÅäÖÃÂ·¾¶£º²Ö¿â/.git/config
+ä»“åº“æ–‡ä»¶é…ç½®è·¯å¾„ï¼šä»“åº“/.git/config
 
 
 
-git¶à¸össh keyÕË»§ÅäÖÃ£º
-windowÏÂÅäÖÃ£¬Í¨¹ı²»Í¬host¿ØÖÆÍ¬Óò²»Í¬ÕË»§/²»Í¬ÓòÕË»§(giteeÂëÔÆ£¬github(github/gitea),gitlab)
+gitå¤šä¸ªssh keyè´¦æˆ·é…ç½®ï¼š
+windowä¸‹é…ç½®ï¼Œé€šè¿‡ä¸åŒhostæ§åˆ¶åŒåŸŸä¸åŒè´¦æˆ·/ä¸åŒåŸŸè´¦æˆ·(giteeç äº‘ï¼Œgithub(github/gitea),gitlab)
 
-´ò¿ªcmd/git bash,½øÈë"C:\Users\ÓÃ»§Ãû\.ssh"Ä¿Â¼£ºcd ~/.ssh
+æ‰“å¼€cmd/git bash,è¿›å…¥"C:\Users\ç”¨æˆ·å\.ssh"ç›®å½•ï¼šcd ~/.ssh
 
-Éú³Éssh key:
-ssh-keygen -t rsa -C your_email_1      # gitµÇÂ¼ÓÊÏäÕËºÅ
-Enterfile in which to save the key: id_rsa_user1   # ÊäÈë´æ´¢ÎÄ¼şÃû:id_rsa_xxx,Ä¬ÈÏid_rsa
-Enter passphrase£º                     # ÊäÈë´´½¨ssh_keyµÄÃÜÂë,Ä¬ÈÏ¿Õ
+ç”Ÿæˆssh key:
+ssh-keygen -t rsa -C your_email_1      # gitç™»å½•é‚®ç®±è´¦å·
+Enterfile in which to save the key: id_rsa_user1   # è¾“å…¥å­˜å‚¨æ–‡ä»¶å:id_rsa_xxx,é»˜è®¤id_rsa
+Enter passphraseï¼š                     # è¾“å…¥åˆ›å»ºssh_keyçš„å¯†ç ,é»˜è®¤ç©º
 
 
-Éú³ÉµÚ¶ş¸öÕËºÅµÄssh key:
+ç”Ÿæˆç¬¬äºŒä¸ªè´¦å·çš„ssh key:
 ssh-keygen -t rsa -C your_email_2
 Enterfile in which to save the key: id_rsa_user2
 
 
-"C:\Users\ÓÃ»§Ãû\.ssh"ÏÂÉú³Éid_rsa_user1ºÍid_rsa_user1.pub
-°Ñ.pubÎÄ¼şµÄÄÚÈİ¸´ÖÆÖÁgitÕËºÅ¡ª¡ªSettings Ìí¼Óssh key
+"C:\Users\ç”¨æˆ·å\.ssh"ä¸‹ç”Ÿæˆid_rsa_user1å’Œid_rsa_user1.pub
+æŠŠ.pubæ–‡ä»¶çš„å†…å®¹å¤åˆ¶è‡³gitè´¦å·â€”â€”Settings æ·»åŠ ssh key
 
 
 
-Ìí¼Ó~/.sshÏÂµÄconfigÎÄ¼ş
-Ìí¼ÓÎŞºó×ºµÄÎÄ¼şÖØÃüÃûconfig
-HostName ¡¡¡¡¡¡¡¡¡¡¡¡¡¡          #  Õâ¸öÊÇÕæÊµµÄÓòÃûµØÖ·,Èçgithub.com¡¢git.oschina.net
-IdentityFile ¡¡¡¡¡¡¡¡¡¡¡¡¡¡      # ÕâÀïÊÇid_rsaµÄµØÖ·
-PreferredAuthentications   # ÅäÖÃµÇÂ¼Ê±ÓÃÊ²Ã´È¨ÏŞÈÏÖ¤--¿ÉÉèÎªpublickey,password publickey,keyboard-interactiveµÈ
-User ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡         # ÅäÖÃÊ¹ÓÃÓÃ»§Ãû
-Host                       # ¿ÉÒÔÈ¡Îª×Ô¼ºÏ²»¶µÄÃû×Ö£¬»áÓ°ÏìgitÏà¹ØÃüÁî£¬Èçgit clone git@hostUser1:<url>¡¢ssh -T git@hostUser1¡¢git remote set-url origin git@hostUser1:<url>
+æ·»åŠ ~/.sshä¸‹çš„configæ–‡ä»¶
+æ·»åŠ æ— åç¼€çš„æ–‡ä»¶é‡å‘½åconfig
+HostName ã€€ã€€ã€€ã€€ã€€ã€€ã€€          #  è¿™ä¸ªæ˜¯çœŸå®çš„åŸŸååœ°å€,å¦‚github.comã€git.oschina.net
+IdentityFile ã€€ã€€ã€€ã€€ã€€ã€€ã€€      # è¿™é‡Œæ˜¯id_rsaçš„åœ°å€
+PreferredAuthentications   # é…ç½®ç™»å½•æ—¶ç”¨ä»€ä¹ˆæƒé™è®¤è¯--å¯è®¾ä¸ºpublickey,password publickey,keyboard-interactiveç­‰
+User ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€         # é…ç½®ä½¿ç”¨ç”¨æˆ·å
+Host                       # å¯ä»¥å–ä¸ºè‡ªå·±å–œæ¬¢çš„åå­—ï¼Œä¼šå½±å“gitç›¸å…³å‘½ä»¤ï¼Œå¦‚git clone git@hostUser1:<url>ã€ssh -T git@hostUser1ã€git remote set-url origin git@hostUser1:<url>
 
 
-configÎÄ¼şÅäÖÃÈçÏÂ:
-# ÅäÖÃgithub.comÕË»§1:user1
+configæ–‡ä»¶é…ç½®å¦‚ä¸‹:
+# é…ç½®github.comè´¦æˆ·1:user1
 Host hostUser1
     HostName github.com
-    IdentityFile C:\\Users\\ÓÃ»§Ãû\\.ssh\\id_rsa_user1
+    IdentityFile C:\\Users\\ç”¨æˆ·å\\.ssh\\id_rsa_user1
     PreferredAuthentications publickey
     User userName1
 
-# ÅäÖÃgithub.comÕË»§2:user2
+# é…ç½®github.comè´¦æˆ·2:user2
 Host hostUser2
     HostName github.com
-    IdentityFile C:\\Users\\ÓÃ»§Ãû\\.ssh\\id_rsa_user2
+    IdentityFile C:\\Users\\ç”¨æˆ·å\\.ssh\\id_rsa_user2
     PreferredAuthentications publickey
     User userName2
 
-# ÅäÖÃgit.oschina.netÂëÔÆÕË»§
+# é…ç½®git.oschina.netç äº‘è´¦æˆ·
 Host git.oschina.net
     HostName git.oschina.net
-    IdentityFile C:\\Users\\ÓÃ»§Ãû\\.ssh\\id_rsa_oschina
+    IdentityFile C:\\Users\\ç”¨æˆ·å\\.ssh\\id_rsa_oschina
     PreferredAuthentications publickey
     User username3
 
 
 
-²âÊÔ¹«Ô¿ÅäÖÃÊÇ·ñ³É¹¦:
-ssh -T git@hostUser1        # Ó³ÉägithubµÄuser1ÕË»§
-Are you sure you want to continue connecting(yes/no)?yes # µÚÒ»´ÎÁ¬½Ó
-·µ»ØHi user1Ôò³É¹¦ÅäÖÃ
-Í¬Àí£º
+æµ‹è¯•å…¬é’¥é…ç½®æ˜¯å¦æˆåŠŸ:
+ssh -T git@hostUser1        # æ˜ å°„githubçš„user1è´¦æˆ·
+Are you sure you want to continue connecting(yes/no)?yes # ç¬¬ä¸€æ¬¡è¿æ¥
+è¿”å›Hi user1åˆ™æˆåŠŸé…ç½®
+åŒç†ï¼š
 ssh -T git@hostUser2
 ssh -T git@git.oschina.net
-Í¬Ê±~/.sshÏÂ×Ô¶¯Éú³Éknown_hostsÎÄ¼ş£¬µçÄÔÅäÖÃ¶àgitÕËºÅ³É¹¦
+åŒæ—¶~/.sshä¸‹è‡ªåŠ¨ç”Ÿæˆknown_hostsæ–‡ä»¶ï¼Œç”µè„‘é…ç½®å¤šgitè´¦å·æˆåŠŸ
 
 
 
-ÒÑÅäÖÃ¶à¸öÕËºÅºó,²»Í¬ÏîÄ¿²Ö¿âÓÃ¶ÔÓ¦ÕËºÅ£º
-git clone git@hostUser1:user1/²Ö¿âÃû.git
+å·²é…ç½®å¤šä¸ªè´¦å·å,ä¸åŒé¡¹ç›®ä»“åº“ç”¨å¯¹åº”è´¦å·ï¼š
+git clone git@hostUser1:user1/ä»“åº“å.git
 git config user.name user1
 git config user.email your_email_1
-Èô²»ÅäÖÃ£¬ÔòÄ¬ÈÏÊ¹ÓÃ"C:\Users\Administrator\.gitconfig"È«¾ÖÅäÖÃÕËºÅ
+è‹¥ä¸é…ç½®ï¼Œåˆ™é»˜è®¤ä½¿ç”¨"C:\Users\Administrator\.gitconfig"å…¨å±€é…ç½®è´¦å·
 
 
 
 
+## æ·»åŠ æœ¬åœ°ä»“åº“ç”¨æˆ·ä¿¡æ¯
 
 
-³£ÓÃÃüÁî
-ssh-keygen -t rsa -C "your_email" Éú³Éssh key£¬Ä¬ÈÏÎÄ¼şÃûid_rsa
-ssh-keygen -t rsa -f ~/.ssh/id_rsa.github -C "your_email" Éú³ÉÖ¸¶¨ÎÄ¼şÃûid_rsa.github
-git config --global user.name "your name" # ÉèÖÃÓÃ»§Ãû
-git config --global user.email "your_email" # ÉèÖÃÓÊÏä
-
-git init # ´´½¨git²Ö¿â
-git remote add origin [your ssh repositories] # Ìí¼ÓÔ¶³Ì²Ö¿â
-git remote set-url origin [your ssh repositories] # ĞŞ¸Ä¹ØÁªµÄÔ¶³Ì²Ö¿âµØÖ·
-git remote -v # ²é¿´Ô¶³Ì²Ö¿â
 
 
-git branch -a # ²é¿´È«²¿·ÖÖ§
+å¸¸ç”¨å‘½ä»¤
+ssh-keygen -t rsa -C "your_email" ç”Ÿæˆssh keyï¼Œé»˜è®¤æ–‡ä»¶åid_rsa
+ssh-keygen -t rsa -f ~/.ssh/id_rsa.github -C "your_email" ç”ŸæˆæŒ‡å®šæ–‡ä»¶åid_rsa.github
+git config --global user.name "your name" # è®¾ç½®ç”¨æˆ·å
+git config --global user.email "your_email" # è®¾ç½®é‚®ç®±
+
+git init # åˆ›å»ºgitä»“åº“
+git remote add origin [your ssh repositories] # æ·»åŠ è¿œç¨‹ä»“åº“
+git remote set-url origin [your ssh repositories] # ä¿®æ”¹å…³è”çš„è¿œç¨‹ä»“åº“åœ°å€
+git remote -v # æŸ¥çœ‹è¿œç¨‹ä»“åº“
 
 
-git reset [--hard | soft | mixed | merge | keep ] # ºÏ²¢
-git reset --mixed HEAD~1 # »ØÍËÉÏÒ»¸öÌá½»£¬±£Áô¸ü¸Ä
-git reset --hard HEAD~1 # »ØÍËÉÏÒ»¸öÌá½»£¬¶ªÆúÉÏ¸öÌá½»Ö®ºóµÄ¸ü¸Ä
+git branch -a # æŸ¥çœ‹å…¨éƒ¨åˆ†æ”¯
 
 
-git commit --amend -m "ĞÂµÄÌá½»ĞÅÏ¢" # ĞŞ¸Ä×î½üÒ»´ÎÌá½»ĞÅÏ¢
+git reset [--hard | soft | mixed | merge | keep ] # åˆå¹¶
+git reset --mixed HEAD~1 # å›é€€ä¸Šä¸€ä¸ªæäº¤ï¼Œä¿ç•™æ›´æ”¹
+git reset --hard HEAD~1 # å›é€€ä¸Šä¸€ä¸ªæäº¤ï¼Œä¸¢å¼ƒä¸Šä¸ªæäº¤ä¹‹åçš„æ›´æ”¹
+
+
+git commit --amend -m "æ–°çš„æäº¤ä¿¡æ¯" # ä¿®æ”¹æœ€è¿‘ä¸€æ¬¡æäº¤ä¿¡æ¯
