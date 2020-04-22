@@ -86,7 +86,8 @@ git config user.email your_email_1
 
 
 ## 添加本地仓库用户信息
-
+注：即使成功生成ssh key,但绑定https远程仓库后还是会出现输入密码
+更换远程仓库地址https为git链接即可
 
 
 
