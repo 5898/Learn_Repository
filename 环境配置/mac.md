@@ -2,7 +2,7 @@ sudo -i 切换root用户和权限
 注意：和当前xx用户目录不同 xx用户ssh目录：～/.ssh
 root用户ssh目录：/var/root/.ssh
 
-# Homebrew
+# Homebrew国内镜像安装
 https://blog.csdn.net/u010458765/article/details/104730037/
 
 删除/usr/local/Homebrew文件夹，重新生成空文件夹
@@ -61,6 +61,8 @@ end
 
 
 
+
+
 # homebrew常用命令
 `brew -v` 查看版本
 `brew update` 更新Homebrew自己
@@ -87,3 +89,15 @@ rm -r Library/Homebrew Library/Aliases Library/Formula Library/Contributions
 rm -rf .git
 rm -rf ~/Library/Caches/Homebrew
 ```
+
+
+#### brew install 包报错
+Error: The following directories are not writable by your user: /usr/local/share/doc /usr/local/share/man /usr/local/share/man/man1 /usr/local/share/man/man5 /usr/local/share/man/man7  You should change the ownership of these directories to your user. 
+解决办法：回收权限后即可使用brew install
+`sudo chown -R `whoami`:admin /usr/local/bin`
+`sudo chown -R `whoami`:admin /usr/local/share`
+
+#### brew cleanup报错
+Error: Permission denied @ apply2files - /usr/local/lib/node_modules/webpack/node_modules/extglob/lib/.DS_Store
+`sudo chown -R $(whoami) /usr/local`
+`brew cleanup`
