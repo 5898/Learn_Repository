@@ -101,3 +101,8 @@ Error: The following directories are not writable by your user: /usr/local/share
 Error: Permission denied @ apply2files - /usr/local/lib/node_modules/webpack/node_modules/extglob/lib/.DS_Store
 `sudo chown -R $(whoami) /usr/local`
 `brew cleanup`
+
+# mac环境变量设置
+～/.bash_profile：
+需要使用source执行下，方可生效
+～/.zshrc修改环境变量，保存修改重启终端即可
