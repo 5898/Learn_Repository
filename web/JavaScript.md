@@ -39,6 +39,7 @@ console.log(5,a); // 1
 
 ## 深拷贝
 ### 对象的深拷贝
+#### 扩展运算符(…)
 扩展运算符(…)用于取出参数对象中的所有可遍历属性，拷贝到当前对象之中
 
 只拷贝一层
@@ -55,16 +56,17 @@ var o = {};
 let new_obj = Object.assign({}, obj);
 // 等价于(es6写法)
 let new_obj = { ...obj };
-
 // 合并{a:2, b: 4}和bar
 let new_obj2 = {...obj, ...{a:2, b: 4}};
 
 
 obj.id = 2;
 obj.msg.age = 20;
-console.log(obj); //{id: 1,name: 'andy', msg:{age:20}}
+console.log(obj); //{id: 2,name: 'andy', msg:{age:20}}
+console.log(new_obj); //{id: 1,name: 'andy', msg:{age:20}},由此可见age变化
 ```
-### 用递归拷贝
+
+#### 用递归拷贝，遍历所有层级
 ```javascript
 var obj = {
     id: 1,
@@ -98,6 +100,32 @@ function deepCopy(newobj, oldobj) {
 }
 deepCopy(o, obj);
 ```
+
+#### 序列化拷贝 JSON.parse(JSON.stringify())
+将js对象序列化（JSON字符串），再使用JSON.parse来反序列化(还原)js对象
+`let newObj=JSON.parse(JSON.stringify(obj))`
+注意：
+  obj里有时间对象，序列化后得到的只是字符串形式，而不是时间对象
+  有RegExp、Error对象,序列化后得到的是空对象
+  函数,序列化后会把函数、undefined丢失
+  NaN、Infinity、-Infinity、undefined,序列化后会变成null
+  只能序列化对象的可枚举的自有属性，如果obj中的对象是有构造函数生成的，  则使用JSON.parse(JSON.stringify(obj))深拷贝后，会丢弃对象的constructor
+```javascript
+let errObj={
+  date: [new Date(1536627600000), new Date(1540047600000)],
+  reg:new RegExp("\\w+"),
+  test:[NaN,Infinity,-Infinity,undefined,null],
+  fn:function(){return 1}
+}
+let new_errObj=JSON.parse(JSON.stringify(errObj));
+console.log(new_errObj); 
+// {
+//   date:["2018-09-11T01:00:00.000Z", "2018-10-20T15:00:00.000Z"],
+//   reg:{},
+//   test:[null, null, null, null, null],
+// }
+```
+  
 
 ### 数组的深拷贝
 ```javascript
