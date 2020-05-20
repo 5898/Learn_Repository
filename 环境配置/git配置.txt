@@ -104,6 +104,12 @@ git remote -v # 查看远程仓库
 
 
 git branch -a # 查看全部分支
+git checkout 分支名 切换分支
+
+git强制远程覆盖本地：
+git fetch --all	#取回远程库的所有修改；
+git reset --hard origin/master	#指向远程库origin的master
+git pull	#把远程库拉取到本地库
 
 
 git reset [--hard | soft | mixed | merge | keep ] # 合并
