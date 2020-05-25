@@ -131,6 +131,7 @@ console.log(new_errObj);
 ```javascript
 const arr1 = [1, 2];
 const arr2 = [...arr1];
+const arr3 = arr1.concant();
 
 // 如果将扩展运算符用于数组赋值，只能放在参数的最后一位，否则会报错
 // 报错
@@ -143,20 +144,16 @@ const [first, ...rest, last] = [1, 2, 3, 4, 5];
 
 更改this指向的方法
 
-call传递参数列表，apply传递参数数组
+`fn.call(对象,参数1，参数2,....);`  //此地参数是指的是对象的参数，非方法的参数；
 
-语法：
+`fn.apply(对象,参数数组)` //参数数组的形式:[参数1，参数2,......]
 
-fn.call(对象,参数1，参数2,....);//此地参数是指的是对象的参数，非方法的参数；
-
-fn.apply(对象,参数数组)//参数数组的形式:[参数1，参数2,......]
-
-bind
+`fn.bind(this);`
 
 
 ## 闭包和作用域
 
-闭包允许函数访问并操作函数外部的变量
+闭包允许函数访问并操作函数外部的变量,会增加内存开销
 
 
 ## let,var,const区别
@@ -318,13 +315,19 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。 Node.js �
 4.循环：从1开始若有同步任务MainTask则执行(一般没有，除动态插入代码);若有2微任务队列更新则执行2，然后执行3
 
 
+## Dom事件机制
+```javascript
+dom.addEventListener("mousedown", _mousedownFn, { once: true }); // 添加事件，执行一次
+dom.addEventListener("click", _clickFn, false ); // 添加事件，false冒泡
+dom.removeEventListener("click", _clickFn, false); // 移除事件
+```
+### 事件队列
 
 ## promise、async await
 
-
 ## 异步和同步
 
-### setTimeout
+### 封装setTimeout为同步
 异步
 改成同步：
 ```javascript
@@ -336,9 +339,19 @@ execAsync(fn) {
     });
 },
 
+
+promise = new Promise(function(resolve,reject)){
+    setTimeout(function(){
+        condole.log('开始');
+        resolve("success");
+    },5000)
+});
+let res=await promise(); // success
+
+
 // vue 同步节点更新
 await this.$nexttick(()=>{
-    done();
+  done();
 })
 ```
 
@@ -407,12 +420,27 @@ window.addEventListener("mousemove",throttle(()=>{
 ## ts
 
 ## 跨域CORS
-
-同源策略（Same origin policy）
+浏览器的同源策略（Same origin policy）
 
 CORS:全称"跨域资源共享"(Cross-origin resource sharing)
 
-## 事件机制
+
+
+## Array常用函数
+
+`arr.forEach()`   返回值undefined
+`arr.map()`       返回新数组
+
+
+
+
+
+
+
+
+
+
+
 
 # 相关链接
 
