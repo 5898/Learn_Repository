@@ -430,6 +430,7 @@ CORS:全称"跨域资源共享"(Cross-origin resource sharing)
 
 `arr.forEach()`   返回值undefined
 `arr.map()`       返回新数组
+`Array.isArray([])` 是否数组,true
 
 
 
