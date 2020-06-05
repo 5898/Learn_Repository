@@ -451,6 +451,28 @@ CORS:全称"跨域资源共享"(Cross-origin resource sharing)
 ~~"Hello world" // returns 0
 
 
+## Map对象
+```javascript
+let myMap=new Map();
+myMap.set(keyString, "和键'a string'关联的值");
+myMap.get(keyString);    // "和键'a string'关联的值"
+myMap.set(NaN, "not a number");
+myMap.get(NaN); // "not a number"
+myMap.size; // 3
+```
+### 迭代
+for (let key of myMap.keys()) {}
+for (let value of myMap.values()) {}
+for (let [key, value] of myMap.entries()) {}
+myMap.forEach((value, key)=>{})
+
+### 二维数组转化Map
+```javascript
+let kvArray = [["key1", "value1"], ["key2", "value2"]];
+let myMap = new Map(kvArray);
+
+console.log([...myMap]); // Map转化为二维数组
+```
 
 
 # 相关链接
