@@ -436,9 +436,19 @@ CORS:全称"跨域资源共享"(Cross-origin resource sharing)
 
 
 
+## String字符串
 
+#### 字符串转数字
+"1.23" * 1 // returns 1.23
+"0xFF" - 0 // returns 255
+"0xFF.jpg" / 1 // returns NaN
++"023" // returns 23
 
-
+#### 把字符串转换成整数
+~~1.23 // returns 1
+~~"1.23" // returns 1
+~~"23" // returns 23
+~~"Hello world" // returns 0
 
 
 
