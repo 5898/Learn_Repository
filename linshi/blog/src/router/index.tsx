@@ -4,18 +4,18 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import App from '@/App';
 import loading from './loading';
 
-const RouterList: any[] = [
+const routes: any[] = [
   {
-    component: () => App,
-    path: '/'
+    path: '/',
+    component: App,
   },
   // {
   //   component: () => App,
   //   path: '/app'
   // },
   {
-    component: () => NoMatch,
-    path: '*'
+    path: '*',
+    component: NoMatch,
   },
 ];
 
@@ -23,12 +23,16 @@ const RouterMap = () => {
   return (
     <Router>
       <Switch>
-        {RouterList.map(item => (
+        {routes.map((route, i) => (
           <Route
-            key={item.path}
+            key={i}
             exact={true}
-            path={item.path}
-            component={item.component}
+            path={route.path}
+            component={route.component}
+            // component={Loadable({
+            //   loader: route.component,
+            //   loading
+            // })}
           />
         ))}
       </Switch>
