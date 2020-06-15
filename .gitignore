@@ -2,3 +2,5 @@
 .DS_Store
 *.log:          #表示忽略所有 .log 文件
 /.idea/          #表示忽略 .idea/目录下的所有文件，过滤整个.idea文件夹；
+/.idea
+/node_modules
