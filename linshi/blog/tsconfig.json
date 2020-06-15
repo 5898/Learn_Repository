@@ -25,12 +25,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    // 工作根目录
-//    "baseUrl": ".",
-//    配置@导入模块
-//    "paths": {
-//      "@/*": ["src/*"]
-//    },
+    //工作根目录
+    "baseUrl": ".",
+    //配置@导入模块,改配置必须同时配置baseUrl
+    "paths": {
+      "@/*": ["src/*"]
+    },
     // 启用实验性的ES装饰器
     "experimentalDecorators": true,
     // 是否生成map文件
