@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import RouterMap from '@/router'
+import { Provider } from 'react-redux'
+import { applyMiddleware, createStore } from 'redux'
 
 import './index.css';
 

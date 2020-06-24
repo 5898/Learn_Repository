@@ -1,18 +1,17 @@
 import React from 'react';
-import * as Loadable from 'react-loadable'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import App from '@/App';
-import loading from './loading';
+import App from '@/components/App/App';
+import Articles from '@/components/Articles/Articles';
 
 const routes: any[] = [
-  {
-    path: '/',
-    component: App,
-  },
   // {
-  //   component: () => App,
-  //   path: '/app'
+  //   path: '/',
+  //   component: App,
   // },
+  {
+    component: () => Articles,
+    path: '/articles'
+  },
   {
     path: '*',
     component: NoMatch,
@@ -22,20 +21,18 @@ const routes: any[] = [
 const RouterMap = () => {
   return (
     <Router>
-      <Switch>
-        {routes.map((route, i) => (
-          <Route
-            key={i}
-            exact={true}
-            path={route.path}
-            component={route.component}
-            // component={Loadable({
-            //   loader: route.component,
-            //   loading
-            // })}
-          />
-        ))}
-      </Switch>
+      <App>
+        <Switch>
+          {routes.map((route, i) => (
+            <Route
+              key={i}
+              exact={true}
+              path={route.path}
+              component={route.component}
+            />
+          ))}
+        </Switch>
+      </App>
       {/*<Switch>*/}
       {/*  <Route exact path="/">*/}
       {/*    <App />*/}
